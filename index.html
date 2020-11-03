@@ -15,7 +15,11 @@
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
-            <!-- image goes here -->
+            <!-- image goes here  use attribute binding-->
+            <!-- v:bind: Dynamically bind an attribute to an expression. In this the attribute is "src". The shorthand is just ":". like :src -->
+            <!-- example: :src, :alt, :href, :class, :style, :disabled-->
+            <img v-bind:src="image">
+            <a :href="url">code Challenge</a>
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
