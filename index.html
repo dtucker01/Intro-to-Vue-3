@@ -20,8 +20,7 @@
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
-             <!-- <p v-if="inStock">In Stock</p> This only sets the style to : display: none;. the element hasn't gone anywhere, it's just hidden 
-            <p v-else>Out of Stock</p> -->
+            
             <p v-if="inventory > 10">In Stock</p> <!--This only sets the style to : display: none;. the element hasn't gone anywhere, it's just hidden -->
             <p v-else-if="inventory <= 10 && inventory > 0">Almost out of stock</p>
             <p v-else>Out of Stock</p>
