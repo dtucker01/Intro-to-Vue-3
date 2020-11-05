@@ -20,7 +20,8 @@
             <img v-bind:src="image" :class="{ 'out-of-stock-img': !inStock }">
           </div>
           <div class="product-info">
-            <h1>{{ product }}</h1>
+            <h1>{{ title }}</h1>
+            <p>{{ sale }}</p>
             <p v-if="inStock">In Stock</p>
             <p v-else>Out of Stock</p>
             <ul>
@@ -28,12 +29,12 @@
             </ul>
 
             <div 
-              v-for="variant in variants" 
+              class="color-circle" 
+              v-for="(variant, index) in variants" 
               :key="variant.id" 
-              @mouseover="updateImage(variant.image)" 
-              class="color-circle"
-               :style="{ backgroundColor: variant.color }"></div>  <!--When using style binding we are within an object. the style object is all javascript. That's why you use cameCase because if you use HTML background-color javascript will see it as a minus (math)  -->
-            <button class="button" :class="{ disabledButton: !inStock }" :disabled="!inStock" @click="addToCart">Add to Cart</button>
+              @mouseover="updateVariant(index)" 
+              :style="{ backgroundColor: variant.color }"></div>
+            <button class="button" :class="{ disabledButton: !inStock }" :disabled="!inStock" v-on:click="addToCart">Add to Cart</button>
           </div>
         </div>
       </div>
